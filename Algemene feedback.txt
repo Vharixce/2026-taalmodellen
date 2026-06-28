@@ -1,0 +1,50 @@
+Algemene feedback
+
+Je hebt een agent ingeleverd bij de opdracht "taalmodel". Dit is gek want je toont wel de goede rubric voor de taalopdracht. Je hebt de Use Case/Les 1 oefeningen wel ingeleverd.
+
+De interface ziet er goed uit, met markdown en streaming. 
+Leuk dat je een tool hebt gemaakt voor de RIOT api.
+
+Je code roept een aantal vragen op, die niet allemaal in je video beantwoord worden:
+
+    Je gebruikt Huggingface voor embeddings in plaats van Azure?
+    Je gebruikt langchain GROQ met LLama? is dit een lokaal draaiend model?
+    Je houdt de token usage globaal bij, daardoor worden alle gebruikers bij elkaar op geteld?
+    Je lijkt een oude versie van langchain te gebruiken met "createReactAgent"? 
+    Je zoekt na elke API call in de documents, maar je gebruikt ook tools. Als je een agent met tools maakt, dan kan je de document search ook als tool toevoegen.
+Een aantal zaken die niet kloppen:
+
+    De express server en agent code staan dwars door elkaar heen.
+    Je stuurt telkens de hele chat history heen en terug van de client naar de server
+    De vectorstore wordt telkens opnieuw aangemaakt als je de server (her)start. Dat is niet handig omdat je dan telkens embedding tokens verbruikt, en het opstarten duurt daardoor ook veel langer. Dit zien we zelfs in de video gebeuren.
+    Na elke API request maak je opnieuw de "retriever" aan voor de vectorstore, dit kan je ook global (of een module) maken.
+    Je maakt bij elke API call naar je server een nieuwe agent met tools aan? Dit is heel inefficiënt! 
+    Hoe werkt je memorystore? Het lijkt gedeeld te zijn met alle gebruikers, maar je maakt wel telkens een nieuwe agent aan. Dit is verwarrend.
+    De streaming code klopt niet. Je genereert nu eerst het hele antwoord op de server en daarna "stream" je die terug met een kunstmatige pauze. Nu krijgt de gebruiker langzamer een antwoord...
+
+Omdat er zo veel merkwaardige keuzes gemaakt zijn kan ik je project helaas geen voldoende geven.
+
+Voor de herkansing : lees de opdracht nog even goed door (het is geen agent maar een chatbot met taalmodel), en gebruik zo veel mogelijk de code uit de lessen. Als je met AI werkt moet je dit in de video helder toelichten, en check ook of de code overeenkomt met de les.
+
+
+
+
+
+
+-----
+
+
+
+
+Algemene feedback
+
+Je hebt hier dezelfde github en project ingeleverd als bij het taalmodel.
+
+In je video ga je nu langs bij de criteria van de agent.
+
+Het is de bedoeling dat je per lesopdracht een use case bedenkt en uitwerkt. Je kan niet hetzelfde project twee keer inleveren.
+
+Ik heb daarom besloten om dit project alleen te beoordelen voor de taalmodel opdracht. Je ziet daar ook wat er nog mis is met de code.
+
+Voor de "agent" opdracht herkansing moet je een apart project opzetten met een andere use case.
+
